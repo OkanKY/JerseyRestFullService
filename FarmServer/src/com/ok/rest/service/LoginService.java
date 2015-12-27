@@ -22,15 +22,21 @@ import com.ok.database.DataBaseController;
 @Path("user")
 public class LoginService {
 
+	private DataBaseController controller = null;
+
+	public LoginService() {
+		controller = new DataBaseController();
+		controller.connectDataBase();
+	}
+
 	@POST
 	@Path("login")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response login(@Context HttpHeaders httpHeaders,
-			@FormParam("user_name") String user_name, @FormParam("password") String password) {
+			@FormParam("user_name") String user_name,
+			@FormParam("password") String password) {
 		// TODO Auto-generated method stub
 
-		DataBaseController controller = new DataBaseController();
-		controller.connectDataBase();
 		return controller.checkUserLogin(user_name, password);
 	}
 
@@ -42,9 +48,36 @@ public class LoginService {
 			@FormParam("password") String password) {
 		// TODO Auto-generated method stub
 
-		DataBaseController controller = new DataBaseController();
-		controller.connectDataBase();
 		return controller.createUser(username, password);
+	}
+
+	@POST
+	@Path("getFieldInformationList")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getFieldInformationList(
+			@FormParam("FieldID") Integer fieldID) {
+		return controller.getFieldInformationList(fieldID);
+	}
+
+	@POST
+	@Path("getUserFieldList")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getUserFieldList(@FormParam("UserName") String UserName,@FormParam("Password")String Password ) {
+		return controller.getUserFieldList(UserName,Password);
+	}
+	@POST
+	@Path("setWatering")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Boolean setWatering(@WebParam(name = "FieldID") Integer FieldID,@WebParam(name = "Time") Integer Time)
+	{
+		
+		return false;
+	}
+	@POST
+	@Path("getCurrentInformation")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getCurrentInformation(@WebParam(name = "FieldID") Integer FieldID ){
+		return null;
 	}
 
 	@POST
@@ -53,13 +86,5 @@ public class LoginService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	@POST
-	@Path("getFieldInformation")
-	public Response getFieldInformationList(@WebParam(name = "FieldID") Integer FieldID ){
-		// TODO Auto-generated method stub
-		DataBaseController controller = new DataBaseController();
-		controller.connectDataBase();
-		return null;
-	}
+
 }

@@ -4,14 +4,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.json.Json;
+import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
 import javax.ws.rs.core.CacheControl;
 import javax.ws.rs.core.Response;
 
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import com.ok.attiribute.FieldInformation;
+import com.ok.attiribute.UserField;
 import com.ok.database.DataBaseManager.DatabaseType;
 
 public class DataBaseController {
@@ -113,14 +116,16 @@ public class DataBaseController {
 	}
 
 	@SuppressWarnings("unchecked")
-	public Response getInformationList(Integer FieldID) {
+	public Response getFieldInformationList(Integer FieldID) {
 
 		ResultSet resultSet = null;
+		JSONObject rootObject = new JSONObject();
 		JSONArray fieldList = new JSONArray();
 		try {
 
 			resultSet = setQuery(" SELECT FI.DateInformation,FI.humidity,FI.temperature FROM FIELDINFORMATION AS FI WHERE FI.FieldID='"
 					+ FieldID + "'; ");
+
 			while (resultSet.next()) {
 
 				FieldInformation field = null;
@@ -130,9 +135,10 @@ public class DataBaseController {
 				field.setHumidity(resultSet.getInt("humidity"));
 				field.setTemperature(resultSet.getInt("temperature"));
 
-				fieldList.add(field);
+				fieldList.add(field.toJSONString());
 
 			}
+			rootObject.put("FieldInformationList", fieldList);
 
 		} catch (Exception e) {
 
@@ -141,8 +147,46 @@ public class DataBaseController {
 		}
 
 		return getNoCacheResponseBuilder(Response.Status.GONE).entity(
-				fieldList.toString()).build();
+				rootObject.toString()).build();
 
+	}
+
+	@SuppressWarnings("unchecked")
+	public Response getUserFieldList(String userName, String password) {
+		// TODO Auto-generated method stub
+		ResultSet resultSet = null;
+		JSONObject rootObject = new JSONObject();
+		JSONArray fieldList = new JSONArray();
+		try {
+
+			resultSet = setQuery("SELECT F.FieldName,F.FieldID FROM FIELD AS F WHERE F.FieldID IN "
+					+ " (SELECT L.FieldID FROM LOGINFIELD AS L  WHERE L.UserName IN "
+					+ " ( SELECT U.UserName FROM USERLOGIN AS U WHERE U.UserName ='"
+					+ userName
+					+ "' AND U.Password='"
+					+ password
+					+ "' AND U.Status=1) ); ");
+
+			while (resultSet.next()) {
+
+				UserField field = null;
+				
+				field = new UserField();
+				field.setFieldName(resultSet.getString("FieldName"));
+				field.setFieldID(resultSet.getInt("FieldID"));
+				fieldList.add(field.toJSONString());
+
+			}
+			rootObject.put("UserFieldList", fieldList);
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		}
+
+		return getNoCacheResponseBuilder(Response.Status.GONE).entity(
+				rootObject.toString()).build();
 	}
 
 	private Response.ResponseBuilder getNoCacheResponseBuilder(
@@ -154,4 +198,5 @@ public class DataBaseController {
 
 		return Response.status(status).cacheControl(cc);
 	}
+
 }
