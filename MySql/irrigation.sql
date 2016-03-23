@@ -1,36 +1,37 @@
-CREATE TABLE USER(
-    UserID INT NOT NULL primary key  AUTO_INCREMENT,
-	UserName nvarchar(25) NOT NULL,
-	Password nvarchar(25) NOT NULL,
-	Status Bit 
+CREATE TABLE User(
+    userID INT NOT NULL primary key  AUTO_INCREMENT,
+	userName nvarchar(25) NOT NULL,
+	password nvarchar(25) NOT NULL,
+	status Bit 
 )ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
 /*
 Test User Create
 */
-INSERT INTO USER (UserName,Password,Status) VALUES ('okan','1234',1);
-INSERT INTO USER (UserName,Password,Status) VALUES ('kaya','1234',1);
+INSERT INTO User (userName,password,status) VALUES ('okan','1234',1);
+INSERT INTO User (userName,password,status) VALUES ('kaya','1234',1);
+Select * FROM User; 
 
-CREATE TABLE FIELD(
-	FieldID INT NOT NULL primary key  AUTO_INCREMENT ,
-	FieldName nvarchar(25) NOT NULL,
-	FieldUrl nvarchar(50) NOT NULL,
-    FieldInfo nvarchar(50),
-    CenterLongitude Long NOT NULL,
-    CenterLatitude Long NOT NULL,
-    Area Long NOT NULL
+CREATE TABLE Field(
+	fieldID INT NOT NULL primary key  AUTO_INCREMENT ,
+	fieldName nvarchar(25) NOT NULL,
+	fieldUrl nvarchar(50) NOT NULL,
+    fieldInfo nvarchar(50),
+    centerLongitude Long NOT NULL,
+    centerLatitude Long NOT NULL,
+    area Long NOT NULL
 )ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
 /*
 Test Field Create
 */
-INSERT INTO FIELD (FieldName,FieldUrl,FieldInfo,CenterLongitude,CenterLatitude,Area) VALUES ('xxx','xxx','xxx',1.1,1.1,1);
+INSERT INTO Field (fieldName,fieldUrl,fieldInfo,centerLongitude,centerLatitude,area) VALUES ('xxx','xxx','xxx',1.1,1.1,1);
 
-CREATE TABLE USERFIELD(
-	FieldID INT NOT NULL,
-	UserID INT NOT NULL,
-	CreatedDate  timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	PRIMARY KEY (FieldID,UserID),
+CREATE TABLE Userfield(
+	fieldID INT NOT NULL,
+	userID INT NOT NULL,
+	createdDate  timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	PRIMARY KEY (fieldID,userID),
 	CONSTRAINT FIELDS
-	FOREIGN  KEY (FieldID) REFERENCES FIELD (FieldID)
+	FOREIGN  KEY (fieldID) REFERENCES Field (fieldID)
 	ON DELETE CASCADE ,
 	CONSTRAINT USER
 	FOREIGN  KEY (UserID) REFERENCES USER (UserID)
@@ -39,147 +40,148 @@ CREATE TABLE USERFIELD(
 /*
 Test User Create
 */
-INSERT INTO USERFIELD (FieldID,UserID) VALUES (1,1);
-Select * FROM USERFIELD; 
+INSERT INTO Userfield (fieldID,userID) VALUES (1,1);
+Select * FROM Userfield; 
 
-CREATE TABLE PRODUCT(
-	ProductID INT NOT NULL primary key  AUTO_INCREMENT ,
-	ProductName nvarchar(25) NOT NULL,
-	PrductInfo nvarchar(50) NOT NULL
+CREATE TABLE Product(
+	productID INT NOT NULL primary key  AUTO_INCREMENT ,
+	productName nvarchar(25) NOT NULL,
+	prductInfo nvarchar(50) NOT NULL
 )ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
 /*
 Test PRODUCT Create
 */
-INSERT INTO PRODUCT (ProductName,PrductInfo) VALUES ('product','xxx');
-Select * FROM PRODUCT; 
+INSERT INTO Product (ProductName,PrductInfo) VALUES ('product','xxx');
+Select * FROM Product; 
 
-CREATE TABLE FIELDPRODUCT(
-	FieldID INT NOT NULL,
-	ProductID INT NOT NULL,
-	CreatedDate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FinishDate timestamp,
-	PRIMARY KEY (FieldID,ProductID),
+CREATE TABLE Fieldproduct(
+	fieldID INT NOT NULL,
+	productID INT NOT NULL,
+	createdDate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    finishDate timestamp,
+	PRIMARY KEY (fieldID,productID),
 	CONSTRAINT FIELDS
-	FOREIGN  KEY (FieldID) REFERENCES FIELD (FieldID)
+	FOREIGN  KEY (fieldID) REFERENCES Field (fieldID)
 	ON DELETE CASCADE ,
-	CONSTRAINT PRODUCT
-	FOREIGN  KEY (ProductID) REFERENCES PRODUCT (ProductID)
+	CONSTRAINT Product
+	FOREIGN  KEY (productID) REFERENCES Product (productID)
 	ON DELETE CASCADE 
 )ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
 /*
 Test FIELDPRODUCT Create
 */
-INSERT INTO FIELDPRODUCT (FieldID,ProductID) VALUES (1,1);
-Select * FROM FIELDPRODUCT; 
+INSERT INTO Fieldproduct (fieldID,productID) VALUES (1,1);
+Select * FROM Fieldproduct; 
 
-CREATE TABLE STARTIRREGATIONINFO(
-	StartIrregationInfoID INT NOT NULL primary key AUTO_INCREMENT,
-	DateInformation timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+CREATE TABLE Startirregationinfo(
+	startIrregationInfoID INT NOT NULL primary key AUTO_INCREMENT,
+	dateInformation timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     humidity int NOT NULL,
 	temperature int NOT NULL
 )ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
 /*
 Test STARTIRREGATIONINFO Create
 */
-INSERT INTO STARTIRREGATIONINFO (humidity,temperature) VALUES (1,1);
-Select * FROM STARTIRREGATIONINFO; 
+INSERT INTO Startirregationinfo (humidity,temperature) VALUES (1,1);
+Select * FROM Startirregationinfo; 
 
-CREATE TABLE FINISHIRREGATIONINFO(
-	FinishIrregationInfoID INT NOT NULL primary key AUTO_INCREMENT,
-	DateInformation timestamp,
+CREATE TABLE Finishirregationinfo(
+	finishIrregationInfoID INT NOT NULL primary key AUTO_INCREMENT,
+	dateInformation timestamp,
     humidity int NOT NULL,
 	temperature int NOT NULL
 )ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
 /*
 Test FINISHIRREGATIONINFO Create
 */
-INSERT INTO FINISHIRREGATIONINFO (humidity,temperature) VALUES (1,1);
-Select * FROM FINISHIRREGATIONINFO; 
+INSERT INTO Finishirregationinfo (humidity,temperature) VALUES (1,1);
+Select * FROM Finishirregationinfo; 
 
-CREATE TABLE OTHERIRREGATIONINFO(
-	OtherIrregationInfoID INT NOT NULL primary key AUTO_INCREMENT,
-	DateInformation timestamp,
-    GrowthValue int NOT NULL,
-    AvarageHumidity int NOT NULL,
-	AvarageTemperature int NOT NULL,
-    LimitValueOutHumidity int NOT NULL,
-    LimitValueOutTemperature int NOT NULL
+CREATE TABLE Otherirregationinfo(
+	otherIrregationInfoID INT NOT NULL primary key AUTO_INCREMENT,
+	dateInformation timestamp,
+    growthValue int NOT NULL,
+    avarageHumidity int NOT NULL,
+	avarageTemperature int NOT NULL,
+    limitValueOutHumidity int NOT NULL,
+    limitValueOutTemperature int NOT NULL
 )ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
 /*
 Test OTHERIRREGATIONINFO Create
 */
-INSERT INTO OTHERIRREGATIONINFO (GrowthValue,AvarageHumidity,AvarageTemperature,LimitValueOutHumidity,LimitValueOutTemperature) VALUES (1,1,1,1,1);
-Select * FROM OTHERIRREGATIONINFO; 
+INSERT INTO Otherirregationinfo (growthValue,avarageHumidity,avarageTemperature,
+limitValueOutHumidity,limitValueOutTemperature) VALUES (1,1,1,1,1);
+Select * FROM Otherirregationinfo; 
 
-CREATE TABLE IRREGATION(
-	IrregationID INT NOT NULL primary key AUTO_INCREMENT,
-    ProductID INT NOT NULL,
-    StartIrregationInfoID  INT NOT NULL,
-    FinishIrregationInfoID  INT,
-    OtherIrregationInfoID INT,
-    IrregationAmount INT NOT NULL,
-    CONSTRAINT PRODUCT
-	FOREIGN  KEY (ProductID) REFERENCES PRODUCT (ProductID)
+CREATE TABLE Irregation(
+	irregationID INT NOT NULL primary key AUTO_INCREMENT,
+    productID INT NOT NULL,
+    startIrregationInfoID  INT NOT NULL,
+    finishIrregationInfoID  INT,
+    otherIrregationInfoID INT,
+    irregationAmount INT NOT NULL,
+    CONSTRAINT Product
+	FOREIGN  KEY (productID) REFERENCES Product (productID)
 	ON DELETE CASCADE,
-	CONSTRAINT STARTIRREGATIONINFO
-	FOREIGN  KEY (StartIrregationInfoID) REFERENCES STARTIRREGATIONINFO (StartIrregationInfoID)
+	CONSTRAINT Startirregationinfo
+	FOREIGN  KEY (startIrregationInfoID) REFERENCES Startirregationinfo (startIrregationInfoID)
 	ON DELETE CASCADE,
-	CONSTRAINT FINISHIRREGATIONINFO
-	FOREIGN  KEY (FinishIrregationInfoID) REFERENCES FINISHIRREGATIONINFO (FinishIrregationInfoID)
+	CONSTRAINT Finishirregationinfo
+	FOREIGN  KEY (finishIrregationInfoID) REFERENCES Finishirregationinfo (finishIrregationInfoID)
 	ON DELETE CASCADE,
-	CONSTRAINT OTHERIRREGATIONINFO
-	FOREIGN  KEY (OtherIrregationInfoID) REFERENCES OTHERIRREGATIONINFO (OtherIrregationInfoID)
+	CONSTRAINT Otherirregationinfo
+	FOREIGN  KEY (otherIrregationInfoID) REFERENCES Otherirregationinfo (otherIrregationInfoID)
 	ON DELETE CASCADE 
 )ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
 /*
 Test IRREGATION Create
 */
-INSERT INTO IRREGATION (ProductID,StartIrregationInfoID,IrregationAmount) VALUES (1,1,1);
-Select * FROM IRREGATION; 
+INSERT INTO Irregation (productID,startIrregationInfoID,irregationAmount) VALUES (1,1,1);
+Select * FROM Irregation; 
 
-CREATE TABLE OTHERFERTILIZATIONINFO(
-	OtherFertılızatıonInfoID INT NOT NULL primary key AUTO_INCREMENT,
-	DateInformation timestamp,
-    GrowthValue int NOT NULL
+CREATE TABLE Otherfertilizationinfo(
+	otherFertılızatıonInfoID INT NOT NULL primary key AUTO_INCREMENT,
+	dateInformation timestamp,
+    growthValue int NOT NULL
 )ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
 /*
 Test OTHERFERTILIZATIONINFO Create
 */
-INSERT INTO OTHERFERTILIZATIONINFO (GrowthValue) VALUES (1);
-Select * FROM OTHERFERTILIZATIONINFO; 
+INSERT INTO Otherfertilizationinfo (growthValue) VALUES (1);
+Select * FROM otherfertilizationinfo; 
 
-CREATE TABLE FERTILIZATION(
-	FertilizationID INT NOT NULL primary key AUTO_INCREMENT,
-    ProductID INT NOT NULL,
-	FertilizationAmount INT NOT NULL,
-	OtherFertılızatıonInfoID INT,
-	CreatedDate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    CONSTRAINT PRODUCT
-	FOREIGN  KEY (ProductID) REFERENCES PRODUCT (ProductID)
+CREATE TABLE Fertilization(
+	fertilizationID INT NOT NULL primary key AUTO_INCREMENT,
+    productID INT NOT NULL,
+	fertilizationAmount INT NOT NULL,
+	otherFertılızatıonInfoID INT,
+	createdDate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    CONSTRAINT Product
+	FOREIGN  KEY (productID) REFERENCES Product (productID)
 	ON DELETE CASCADE,
-	CONSTRAINT OTHERFERTILIZATIONINFO
-	FOREIGN  KEY (OtherFertılızatıonInfoID) REFERENCES OTHERFERTILIZATIONINFO (OtherFertılızatıonInfoID)
+	CONSTRAINT Otherfertilizationinfo
+	FOREIGN  KEY (otherFertılızatıonInfoID) REFERENCES Otherfertilizationinfo (otherFertılızatıonInfoID)
 	ON DELETE CASCADE
 )ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
 /*
 Test FERTILIZATION Create
 */
-INSERT INTO FERTILIZATION (ProductID,FertilizationAmount,OtherFertılızatıonInfoID) VALUES (1,1,1);
-Select * FROM FERTILIZATION; 
+INSERT INTO Fertilization (productID,fertilizationAmount,otherFertılızatıonInfoID) VALUES (1,1,1);
+Select * FROM Fertilization; 
 
 /*
 Check User Account
 */
-SELECT UserID FROM USER WHERE UserName='okan' AND Password='1234';
+SELECT UserID FROM User WHERE userName='okan' AND password='1234';
 /*
 Get Field information
 */
-SELECT * FROM FIELD AS F WHERE F.FieldID=1; 
+SELECT * FROM Field AS F WHERE F.fieldID=1; 
 /*
 Get User Fields List
 */
-SELECT F.FieldName,F.FieldID FROM FIELD AS F WHERE F.FieldID IN 
-					 (SELECT UF.FieldID FROM USERFIELD AS UF  WHERE UF.UserID IN
-					 ( SELECT U.UserID FROM USER AS U WHERE U.UserName ='okan'
+SELECT F.fieldName,F.fieldID FROM Field AS F WHERE F.fieldID IN 
+					 (SELECT UF.fieldID FROM userfield UF  WHERE UF.userID IN
+					 ( SELECT U.userID FROM User AS U WHERE U.userName ='okan'
                      AND U.Password='1234'
                      AND U.Status=1) );
