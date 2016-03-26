@@ -1,6 +1,5 @@
 package smartirrigation.ok.com.smartapp;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -50,13 +49,13 @@ public class ViewPagerFragment extends android.support.v4.app.Fragment {
             switch(position)
             {
                 case 0:
-                    f = new CalendarFragment();
+                    f = new FieldListFragment();
                     break;
                 case 1:
-                    f = new CalendarFragment();
+                    f = new FieldListFragment();
                     break;
                 case 2:
-                    f = new CalendarFragment();
+                    f = new FieldListFragment();
                     break;
             }
 

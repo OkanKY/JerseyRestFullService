@@ -2,7 +2,10 @@ package com.ok.rest.client;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.ok.item.Field;
+import com.ok.item.FileListItem;
+import com.ok.item.LoginItem;
+
+import java.util.List;
 
 import retrofit.Call;
 import retrofit.GsonConverterFactory;
@@ -13,7 +16,7 @@ import retrofit.Retrofit;
  * Created by Okan on 23.3.2016.
  */
 public class IrrigationApi {
-    private final static String BASE_URL="http://localhost:8080/irragation.system/";
+    private final static String BASE_URL="http://192.168.56.1:8080/irragation.system/rest/user/";
     private IrrigationService irrigationService;
     public IrrigationApi(IrrigationService irrigationService)
     {
@@ -32,20 +35,44 @@ public class IrrigationApi {
 
         return new IrrigationApi(service);
     }
-    public void getUserFieldList(String userName, String password, final ResultCallback callback) {
-        Call<Field> call = irrigationService.getUserFieldList(userName,password);
+    public void getUserFieldList(String userName, String password, final FieldListCallback callback) {
+        Call<List<FileListItem>> call = irrigationService.getUserFieldList(userName, password);
         callback(callback, call);
     }
-    private void callback(final ResultCallback callback, Call<Field> call) {
-        call.enqueue(new retrofit.Callback<Field>() {
-            @Override
-            public void onResponse(Response<Field> response, Retrofit retrofit) {
+    public void checkLogin(String userName, String password, final LoginCallback loginCallback) {
+        Call<LoginItem> call = irrigationService.login(userName, password);
+        callback(loginCallback, call);
+    }
+    private void callback(final FieldListCallback callback, Call<List<FileListItem>> call) {
+        call.enqueue(new retrofit.Callback<List<FileListItem>>() {
+            public void onResponse(Response<List<FileListItem>> response, Retrofit retrofit) {
                 callback.onSuccess(response.body());
             }
 
             @Override
             public void onFailure(Throwable t) {
                 callback.onFailure(t);
+            }
+        });
+    }
+    private void callback(final LoginCallback loginCallback, Call<LoginItem> call) {
+        call.enqueue(new retrofit.Callback<LoginItem>() {
+            public void onResponse(Response<LoginItem> response, Retrofit retrofit) {
+                try {
+               if(response.body()!=null&&response.body().getResult()!=-1)
+                loginCallback.onSuccess(response.body());
+                else
+                   loginCallback.onFailure(new Throwable("User Not Found"));
+
+                } catch (Exception e)
+                {
+                    loginCallback.onFailure(e);
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                loginCallback.onFailure(t);
             }
         });
     }

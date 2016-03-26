@@ -48,7 +48,7 @@ public class JpaController {
 			System.out.println("Request Name: " + userName);
 			System.out.println("Request Password: " + password);
 			if (!results.isEmpty() && results.get(0).getUserID() > 0) {
-				innerObject.addProperty("Result", results.get(0).getUserID());
+				innerObject.addProperty("result",results.get(0).getUserID());
 				return getNoCacheResponseBuilder(Response.Status.CREATED)
 						.entity(innerObject.toString()).build();
 
@@ -58,7 +58,7 @@ public class JpaController {
 			// TODO: handle exception
 			System.out.println("Exception : " + e.getMessage());
 		}
-		innerObject.addProperty("result", "not found");
+		innerObject.addProperty("result",-1);
 		return getNoCacheResponseBuilder(Response.Status.FORBIDDEN).entity(
 				innerObject.toString()).build();
 	}

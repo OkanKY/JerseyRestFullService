@@ -7,8 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 
+import com.ok.item.FileListItem;
 import com.ok.rest.client.IrrigationApi;
-import com.ok.rest.client.ResultCallback;
+import com.ok.rest.client.FieldListCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,16 +20,19 @@ import java.util.List;
  * Time: 下午3:26
  * Mail: specialcyci@gmail.com
  */
-public class CalendarFragment extends Fragment {
+public class FieldListFragment extends Fragment implements View.OnClickListener{
 
     private View parentView;
     private ListView listView;
     private ArrayAdapter<String> arrayAdapter;
     private ArrayList<String> calendarList;
+    private Button restRequest;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         parentView = inflater.inflate(R.layout.calendar, container, false);
         listView   = (ListView) parentView.findViewById(R.id.listView);
+        restRequest=(Button)parentView.findViewById(R.id.restRequest);
+        restRequest.setOnClickListener(this);
         initView();
         return parentView;
     }
@@ -46,26 +50,44 @@ public class CalendarFragment extends Fragment {
                 Toast.makeText(getActivity(), "Clicked item!", Toast.LENGTH_LONG).show();
             }
         });
-        getCalendarData();
-    }
+        //get User Field List
+        recieveFieldListData();
 
-    private void getCalendarData(){
+    }
+    @Override
+    public void onClick(View v) {
+        if(v==restRequest)
+        {
+            recieveFieldListData();
+        }
+    }
+    private void recieveFieldListData()
+    {
         IrrigationApi irrigationApi=IrrigationApi.create();
-        irrigationApi.getUserFieldList("okan", "1234", new ResultCallback() {
+        irrigationApi.getUserFieldList("okan", "1234", new FieldListCallback() {
             @Override
-            public void onSuccess(Object result) {
-                calendarList.add(result.toString());
-               // arrayAdapter.notifyDataSetChanged();
+            public void onSuccess(List<FileListItem> result) {
+                updateList(result);
             }
 
             @Override
             public void onFailure(Throwable t) {
-
+                showMessage(t.getMessage().toString());
             }
         });
-
-        calendarList.add("New Year's Day");
-        calendarList.add("St. Valentine's Day");
-        calendarList.add("Easter Day");
+    }
+    private void updateList(List<FileListItem> items)
+    {
+        calendarList.clear();
+        for (FileListItem item: items) {
+            String s=" fieldName: " +item.getFieldName()+
+                     "\n fieldInfo : "+item.getFieldInfo();
+        calendarList.add(s);
+        }
+        arrayAdapter.notifyDataSetChanged();
+    }
+    private void showMessage(String message)
+    {
+        Toast.makeText(getContext(),"message : "+message,Toast.LENGTH_LONG).show();
     }
 }

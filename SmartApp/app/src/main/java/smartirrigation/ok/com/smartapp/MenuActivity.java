@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
 
 import com.dk.view.folder.ResideMenu;
 import com.dk.view.folder.ResideMenuItem;
@@ -96,7 +95,7 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
         } else if (view == itemProfile) {
             changeFragment(new GalleryFragment());
         } else if (view == itemCalendar) {
-            changeFragment(new CalendarFragment());
+            changeFragment(new FieldListFragment());
         } else if (view == itemSettings) {
             changeFragment(new SettingsFragment());
         }

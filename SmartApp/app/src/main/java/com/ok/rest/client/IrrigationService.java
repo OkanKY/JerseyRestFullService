@@ -1,9 +1,11 @@
 package com.ok.rest.client;
 
-import com.ok.item.Field;
+import com.ok.item.FileListItem;
+import com.ok.item.LoginItem;
+
+import java.util.List;
 
 import retrofit.Call;
-import retrofit.http.GET;
 import retrofit.http.POST;
 import retrofit.http.FormUrlEncoded;
 
@@ -12,7 +14,11 @@ import retrofit.http.FormUrlEncoded;
  */
 public interface IrrigationService {
     @FormUrlEncoded
-    @POST("/rest/user/getUserFieldList")
-    Call<com.ok.item.Field> getUserFieldList(@retrofit.http.Field("userName") String userName,
+    @POST("getUserFieldList")
+    Call<List<FileListItem>> getUserFieldList(@retrofit.http.Field("userName") String userName,
                             @retrofit.http.Field("password") String password);
+    @FormUrlEncoded
+    @POST("login")
+    Call<LoginItem> login(@retrofit.http.Field("userName") String userName,
+                                              @retrofit.http.Field("password") String password);
 }
