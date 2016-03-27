@@ -1,0 +1,11 @@
+@relation Dataset
+
+@attribute growthValue numeric
+@attribute avarageHumidity numeric
+@attribute avarageTemperature numeric
+@attribute limitValueOutHumidity numeric
+@attribute limitValueOutTemperature numeric
+
+@data
+1,1,1,1,1
+1,1,1,0,0

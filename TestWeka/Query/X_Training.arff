@@ -1,0 +1,12 @@
+@relation Dataset
+
+@attribute productID numeric
+@attribute profitValue numeric
+@attribute addressID numeric
+@attribute area numeric
+@attribute climateType {humid_tropical,tropical_savanna,dessert,steppe,mediterranean,humid_subtropical,marine_west_coast,humid_continental,subartic,tundra,ice_cap,highland}
+@attribute soilType {sand,clay,silt,loam,coarse_soil,fine_soil}
+
+@data
+1,1,1,1.1,tropical_savanna,sand
+1,1,1,1.1,tropical_savanna,clay
