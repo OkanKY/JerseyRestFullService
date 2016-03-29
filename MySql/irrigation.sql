@@ -14,15 +14,49 @@ Select * FROM User;
 -- Table structure for table `Address`
 --
 CREATE TABLE IF NOT EXISTS Address (
-  addressID INT NOT NULL AUTO_INCREMENT,
+  addressID INT NOT NULL primary key AUTO_INCREMENT,
   address nvarchar(50) DEFAULT NULL,
-  postcode INT DEFAULT NULL,
-  PRIMARY KEY (addressID)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  postcode INT DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
 /*
 Test Address Create
 */
 INSERT INTO Address (address,postcode) VALUES ('turkey izmir',1234);
+--
+-- Table structure for table `Plant`
+--
+CREATE TABLE IF NOT EXISTS Plant (
+  plantID INT NOT NULL primary key AUTO_INCREMENT,
+  plantInfo nvarchar(50) DEFAULT NULL
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
+/*
+Test Plant Create
+*/
+INSERT INTO Plant (plantInfo) VALUES ('plant description');
+
+SELECT * FROM Plant;
+--
+-- Table structure for table `Climate`
+--
+CREATE TABLE IF NOT EXISTS Climate (
+  climateID INT NOT NULL primary key AUTO_INCREMENT,
+  climateInfo nvarchar(50) DEFAULT NULL
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
+/*
+Test Plant Create
+*/
+INSERT INTO Climate (climateInfo) VALUES ('climate description');
+--
+-- Table structure for table `Soil`
+--
+CREATE TABLE IF NOT EXISTS Soil (
+  soilID INT NOT NULL primary key AUTO_INCREMENT,
+  soilInfo nvarchar(50) DEFAULT NULL
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
+/*
+Test Soil Create
+*/
+INSERT INTO Soil (soilInfo) VALUES ('soil description');
 
 CREATE TABLE IF NOT EXISTS Field(
 	fieldID INT NOT NULL primary key  AUTO_INCREMENT,
@@ -35,37 +69,48 @@ CREATE TABLE IF NOT EXISTS Field(
     area Long DEFAULT NULL,
 	centerLongitude Long DEFAULT NULL,
     centerLatitude Long DEFAULT NULL,
-	climateType enum('humid_tropical','tropical_savanna','dessert','steppe','mediterranean',
-    'humid_subtropical', 'marine_west_coast','humid_continental','subartic', 'tundra','ice_cap','highland') NOT NULL,
-    soilType enum('sand','clay','silt','loam','coarse_soil','fine_soil') NOT NULL,
+	climateID INT NOT NULL,
+    soilID INT NOT NULL,
 	CONSTRAINT Address
 	FOREIGN  KEY (addressID) REFERENCES Address (addressID)
-	ON DELETE CASCADE,	CONSTRAINT User
+	ON DELETE CASCADE,	
+    CONSTRAINT User
 	FOREIGN  KEY (userID) REFERENCES User (userID)
-	ON DELETE CASCADE 
+	ON DELETE CASCADE,
+    CONSTRAINT Climate
+	FOREIGN  KEY (climateID) REFERENCES Climate (climateID)
+	ON DELETE CASCADE,   
+    CONSTRAINT Soil
+	FOREIGN  KEY (soilID) REFERENCES Soil (soilID)
+	ON DELETE CASCADE  
 )ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
 /*
 Test Field Create
 */
-INSERT INTO Field (fieldName,addressID,userID,fieldUrl,fieldInfo,area,centerLongitude,centerLatitude,climateType,soilType) 
-VALUES ('xxx',1,1,'xxx','xxx',1.1,1,1,'dessert','clay');
+INSERT INTO Field (fieldName,addressID,userID,fieldUrl,fieldInfo,area
+,centerLongitude,centerLatitude,climateID,soilID) 
+VALUES ('xxx',1,1,'xxx','xxx',1.1,1,1,1,1);
 
 
 CREATE TABLE IF NOT EXISTS Product(
 	productID INT NOT NULL primary key  AUTO_INCREMENT ,
     fieldID INT NOT NULL,
+    plantID INT NOT NULL,
     createdDate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	productName nvarchar(25) NOT NULL,
 	productInfo nvarchar(50) NOT NULL,
 	CONSTRAINT Field
 	FOREIGN  KEY (fieldID) REFERENCES Field (fieldID)
+	ON DELETE CASCADE,
+	CONSTRAINT Plant
+	FOREIGN  KEY (plantID) REFERENCES Plant (plantID)
 	ON DELETE CASCADE
 )ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=0 ;
 
 /*
 Test PRODUCT Create
 */
-INSERT INTO Product (fieldID,productName,productInfo) VALUES (1,'product','xxx');
+INSERT INTO Product (fieldID,plantID,productName,productInfo) VALUES (1,2,'product','xxx');
 Select * FROM Product; 
 
 CREATE TABLE IF NOT EXISTS FinishedProduct(
@@ -79,7 +124,7 @@ CREATE TABLE IF NOT EXISTS FinishedProduct(
 /*
 Test PRODUCT Create
 */
-INSERT INTO FinishedProduct (productID,profitValue) VALUES (1,1);
+INSERT INTO FinishedProduct (productID,profitValue) VALUES (2,1);
 Select * FROM FinishedProduct; 
 
 CREATE TABLE IF NOT EXISTS Startirregationinfo(
@@ -198,10 +243,14 @@ SELECT F.fieldName,F.fieldID FROM Field AS F WHERE F.userID IN
 /*
  to best product select
 */
-SELECT p.productID,fp.profitValue,fp.finishDate,p.createdDate,f.addressID,f.area,f.climateType,f.soilType 
+SELECT fp.finishDate,p.createdDate,f.addressID,f.area,f.climateID,f.soilID,fp.profitValue,p.plantID
 FROM Field AS f
 LEFT JOIN Product AS p
 ON f.fieldID = p.fieldID
 LEFT JOIN FinishedProduct AS fp
 ON p.productID = fp.productID  
 GROUP BY p.productID;
+/*
+Get Plant Count
+*/
+SELECT COUNT(p.plantID) FROM Plant AS p;
