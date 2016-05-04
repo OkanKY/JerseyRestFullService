@@ -1,0 +1,12 @@
+@relation Plant-weka.filters.unsupervised.attribute.Discretize-B2-M-1.0-Rlast
+
+@attribute addressID numeric
+@attribute area numeric
+@attribute climateID numeric
+@attribute soilID numeric
+@attribute profitValue numeric
+@attribute plantID {'\'(-inf-1.5]\'','\'(1.5-inf)\''}
+
+@data
+1,1.1,1,1,1,'\'(-inf-1.5]\''
+1,1.1,1,1,1,'\'(1.5-inf)\''
