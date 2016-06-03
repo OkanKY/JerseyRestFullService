@@ -49,7 +49,7 @@ public class PlantTestDataCreator extends ITestCreator{
 		// TODO Auto-generated method stub
 		try {
 
-		      for (int d = 0; d < instanceDBCount; d++) {
+		      //for (int d = 0; d < instanceDBCount; d++) {
 		          double[] values = new double[super.attributeCount];
 		          values[0]=((BestPlant)super.bestItem).getAddressID();
 		          values[1]=((BestPlant)super.bestItem).getArea();
@@ -59,7 +59,7 @@ public class PlantTestDataCreator extends ITestCreator{
 		          //values[5]=bestPlant.getPlantID();
 		          values[5]=instanceDBCount+1;
 		          data.add(new DenseInstance(1.0, values));
-		      }
+		      //}
 				
 			} catch (Exception e) {
 				// TODO: handle exception

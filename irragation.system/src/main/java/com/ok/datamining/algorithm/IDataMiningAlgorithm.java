@@ -46,7 +46,7 @@ public abstract class IDataMiningAlgorithm {
 
 	public abstract void setData() throws Exception;
 
-	public abstract ArrayList<Double> getPrediction() throws Exception;
+	public abstract Double getPrediction() throws Exception;
 
 	public abstract void getError() throws Exception;
 

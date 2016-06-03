@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.9" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="com.ok.irragation.model.Soil" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/irragation/model/Soil.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="148" width="135" x="205" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.ok.datamining.item.BestPlant" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/datamining/item/BestPlant.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="292" width="287" x="5543" y="883"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.ok.irragation.model.Field" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/irragation/model/Field.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="508" width="183" x="380" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.ok.irragation.model.Finishirregationinfo" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/irragation/model/Finishirregationinfo.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="220" width="198" x="857" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.ok.irragation.model.Product" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/irragation/model/Product.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="292" width="183" x="1095" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.ok.datamining.creator.test.data.FactoryTestData" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/datamining/creator/test/data/FactoryTestData.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="94" width="167" x="4259" y="425"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="com.ok.datamining.creator.train.data.PlantTrainCreator" 
+    project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/datamining/creator/train/data/PlantTrainCreator.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="130" width="214" x="603" y="425"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="com.ok.datamining.creator.train.data.ITrainCreator" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/datamining/creator/train/data/ITrainCreator.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="166" width="214" x="603" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.ok.irragation.model.Address" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/irragation/model/Address.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="184" width="142" x="1318" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.ok.irragation.model.Fertilization" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/irragation/model/Fertilization.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="256" width="191" x="1500" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="com.ok.irragation.model.User" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/irragation/model/User.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="184" width="150" x="1731" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="com.ok.database.DataBaseManager" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/database/DataBaseManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="418" width="210" x="3162" y="425"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="com.ok.database.DataBaseController" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/database/DataBaseController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="220" width="291" x="3162" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="com.ok.datamining.item.BestItem" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/datamining/item/BestItem.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="76" width="110" x="5543" y="425"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="com.ok.datamining.creator.test.data.StrategyTestData" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/datamining/creator/test/data/StrategyTestData.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="94" width="237" x="3704" y="425"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="com.ok.datamining.database.ContractDataBase" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/datamining/database/ContractDataBase.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="76" width="130" x="1921" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="com.ok.irragation.model.Climate" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/irragation/model/Climate.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="148" width="152" x="2091" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="com.ok.datamining.BaseFactoryDataMining" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/datamining/BaseFactoryDataMining.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="130" width="211" x="4466" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="com.ok.irragation.model.Otherfertilizationinfo" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/irragation/model/Otherfertilizationinfo.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="184" width="198" x="2283" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="com.ok.jpa.controller.JpaInstanceCountController" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/jpa/controller/JpaInstanceCountController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="94" width="183" x="3842" y="883"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="com.ok.datamining.database.Config" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/datamining/database/Config.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="76" width="130" x="2521" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="com.ok.datamining.creator.train.data.FactoryTrainData" 
+    project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/datamining/creator/train/data/FactoryTrainData.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="94" width="192" x="4466" y="425"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="com.ok.datamining.algorithm.FactoryDataMiningAlgorithm" 
+    project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/datamining/algorithm/FactoryDataMiningAlgorithm.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="94" width="245" x="4698" y="425"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="com.ok.irragation.model.Otherirregationinfo" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/irragation/model/Otherirregationinfo.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="328" width="208" x="2691" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="com.ok.irragation.model.Irregation" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/irragation/model/Irregation.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="292" width="183" x="2939" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="com.ok.datamining.algorithm.MultilayerPerceptronAlgorithm" 
+    project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/datamining/algorithm/MultilayerPerceptronAlgorithm.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="148" width="274" x="5229" y="425"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="27" language="java" name="com.ok.database.DataBaseManager.DatabaseType" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/database/DataBaseManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="76" width="119" x="3162" y="883"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="28" language="java" name="com.ok.datamining.folder.ContractFolder" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/datamining/folder/ContractFolder.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="76" width="116" x="3493" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="com.ok.datamining.creator.test.data.PlantTestDataCreator" 
+    project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/datamining/creator/test/data/PlantTestDataCreator.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="112" width="226" x="5693" y="425"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="com.ok.datamining.creator.train.data.StrategyTrainData" 
+    project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/datamining/creator/train/data/StrategyTrainData.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="94" width="238" x="3981" y="425"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="com.ok.datamining.database.DataBaseConnection" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/datamining/database/DataBaseConnection.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="112" width="145" x="3649" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="com.ok.irragation.model.Startirregationinfo" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/irragation/model/Startirregationinfo.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="220" width="198" x="3834" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="com.ok.irragation.model.Plant" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/irragation/model/Plant.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="148" width="141" x="4072" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="com.ok.datamining.algorithm.IDataMiningAlgorithm" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/datamining/algorithm/IDataMiningAlgorithm.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="202" width="230" x="5229" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="com.ok.irragation.model.Finishedproduct" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/irragation/model/Finishedproduct.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="184" width="173" x="4253" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="com.ok.datamining.creator.test.data.ITestCreator" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/datamining/creator/test/data/ITestCreator.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="148" width="230" x="5543" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="com.ok.datamining.algorithm.StrategyDataMiningAlgorithm" 
+    project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/datamining/algorithm/StrategyDataMiningAlgorithm.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="94" width="206" x="4983" y="425"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="com.ok.jpa.controller.JpaController" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/jpa/controller/JpaController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="202" width="291" x="5959" y="425"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="com.ok.rest.service.LoginService" project="irragation.system" 
+    file="/irragation.system/src/main/java/com/ok/rest/service/LoginService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="184" width="479" x="5813" y="-123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="40">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="14"/>  
+  </generalization>  
+  <association id="41">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="42" name="dataManager"/>      
+      <multiplicity id="43" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="44">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="27"/>  
+  </nesting>  
+  <association id="45">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="46" name="strategyTestData"/>      
+      <multiplicity id="47" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="48">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="49" name="strategyDataMiningAlgorithm"/>      
+      <multiplicity id="50" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="37" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="51">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="52" name="jpaInstanceCountController"/>      
+      <multiplicity id="53" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="54">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="34"/>  
+  </generalization>  
+  <association id="55">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="56" name="databaseType"/>      
+      <multiplicity id="57" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="58">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="59" name="strategyTrainData"/>      
+      <multiplicity id="60" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="61">    
+    <end type="SOURCE" refId="39" navigable="false">      
+      <attribute id="62" name="controller"/>      
+      <multiplicity id="63" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="64">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="65" name="factoryDataMiningAlgorithm"/>      
+      <multiplicity id="66" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="67">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="68" name="factoryTrainData"/>      
+      <multiplicity id="69" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="70">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="36"/>  
+  </generalization>  
+  <association id="71">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="72" name="jpaInstanceCountController"/>      
+      <multiplicity id="73" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="74">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="75" name="factoryTestData"/>      
+      <multiplicity id="76" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="77">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="78" name="bestItem"/>      
+      <multiplicity id="79" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="80">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="false" package="false" protected="false" private="false" static="false"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

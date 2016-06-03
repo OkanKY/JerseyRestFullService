@@ -18,6 +18,7 @@ import com.google.gson.JsonObject;
 import com.ok.datamining.BaseFactoryDataMining;
 import com.ok.datamining.item.BestPlant;
 import com.ok.irragation.model.Field;
+import com.ok.irragation.model.Plant;
 import com.ok.irragation.model.User;
 
 public class JpaController {
@@ -85,12 +86,13 @@ public class JpaController {
 			BestPlant bestPlant) {
 		// TODO Auto-generated method stub
 		JsonObject innerObject = new JsonObject();
-		Double result = null;
+		Double plantID = null;
 		try {
 			List<User> results = userCheck(userName, password);
 			if (!results.isEmpty() && results.get(0).getUserID() > 0) {
-				result = getbestPlant(bestPlant);
-				innerObject.addProperty("result", result);
+				plantID = getbestPlant(bestPlant);
+				System.out.println("sonuc:"+plantID);
+				innerObject.addProperty("result", getPlant((int)(double)plantID).get(0).getPlantInfo());
 				return getNoCacheResponseBuilder(Response.Status.CREATED)
 						.entity(innerObject.toString()).build();
 
@@ -116,6 +118,20 @@ public class JpaController {
 									+ "AND u.password = :password ")
 					.setParameter("userName", userName)
 					.setParameter("password", password).getResultList();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return results;
+	}
+	@SuppressWarnings("unchecked")
+	private List<Plant> getPlant(Integer plantID) {
+		List<Plant> results = null;
+		try {
+
+			results = (List<Plant>) entitymanager
+					.createQuery(
+							"SELECT p FROM Plant AS p WHERE p.plantID = :plantID ")
+					.setParameter("plantID", plantID).getResultList();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

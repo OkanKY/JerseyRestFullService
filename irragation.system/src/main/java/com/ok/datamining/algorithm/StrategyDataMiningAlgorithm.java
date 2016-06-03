@@ -1,6 +1,5 @@
 package com.ok.datamining.algorithm;
 
-import java.util.ArrayList;
 
 public class StrategyDataMiningAlgorithm {
 	
@@ -9,9 +8,7 @@ public class StrategyDataMiningAlgorithm {
 		Double bestClass=null;
 		try {
 			dataMiningAlgorithm.setData();
-			
-			ArrayList<Double> list=dataMiningAlgorithm.getPrediction();
-			bestClass=dataMiningAlgorithm.getBestClass(list);
+			bestClass=dataMiningAlgorithm.getPrediction();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

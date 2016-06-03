@@ -43,25 +43,25 @@ public class MultilayerPerceptronAlgorithm extends IDataMiningAlgorithm {
 	}
 
 	@Override
-	public ArrayList<Double> getPrediction() throws Exception {
+	public Double getPrediction() throws Exception {
 		// TODO Auto-generated method stub
-		ArrayList<Double> list = new ArrayList<Double>();
+		double pred=0;
 		try {
 			for (int i = 0; i < super.testDataset.numInstances(); i++) {
 				// get Instance object of current instance
 				Instance newInst = super.testDataset.instance(i);
 				// call classifyInstance, which returns a double value for the
 				// class
-				double pred = mlp.classifyInstance(newInst);
-				list.add(pred);
+				System.out.println("Pre:"+newInst.numAttributes());
+				System.out.println("Pre value:"+ newInst.toString(4));
+				 pred = mlp.classifyInstance(newInst);
+				System.out.println("test:+"+pred);
 			}
-			/* Sorting of arraylist using Collections.sort */
-			Collections.sort(list);
 		} catch (Exception e) {
 			// TODO: handle exception
 			throw (e);
 		}
-		return list;
+		return pred;
 	}
 
 	@Override
