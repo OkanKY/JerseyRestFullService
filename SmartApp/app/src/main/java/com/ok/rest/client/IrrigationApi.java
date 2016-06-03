@@ -2,6 +2,7 @@ package com.ok.rest.client;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.ok.item.BestPlantItem;
 import com.ok.item.FileListItem;
 import com.ok.item.LoginItem;
 
@@ -11,6 +12,7 @@ import retrofit.Call;
 import retrofit.GsonConverterFactory;
 import retrofit.Response;
 import retrofit.Retrofit;
+import retrofit.http.Field;
 
 /**
  * Created by Okan on 23.3.2016.
@@ -43,6 +45,15 @@ public class IrrigationApi {
         Call<LoginItem> call = irrigationService.login(userName, password);
         callback(loginCallback, call);
     }
+    public void getBestPlant(String userName,
+                             String password,Integer addressID,
+                             Integer area,Integer climateID,
+                             Integer soilID,Integer profitValue,
+                             Integer plantID,BestItemCallback bestItemCallback) {
+        Call<BestPlantItem> call = irrigationService.getBestPlant(userName, password, addressID,
+                area, climateID, soilID, profitValue, plantID);
+        callback(bestItemCallback, call);
+    }
     private void callback(final FieldListCallback callback, Call<List<FileListItem>> call) {
         call.enqueue(new retrofit.Callback<List<FileListItem>>() {
             public void onResponse(Response<List<FileListItem>> response, Retrofit retrofit) {
@@ -73,6 +84,23 @@ public class IrrigationApi {
             @Override
             public void onFailure(Throwable t) {
                 loginCallback.onFailure(t);
+            }
+        });
+    }
+    private void callback(final BestItemCallback bestItemCallback, Call<BestPlantItem> call) {
+        call.enqueue(new retrofit.Callback<BestPlantItem>() {
+            public void onResponse(Response<BestPlantItem> response, Retrofit retrofit) {
+                try {
+                    bestItemCallback.onSuccess(response.body());
+                } catch (Exception e)
+                {
+                    bestItemCallback.onFailure(e);
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                bestItemCallback.onFailure(t);
             }
         });
     }

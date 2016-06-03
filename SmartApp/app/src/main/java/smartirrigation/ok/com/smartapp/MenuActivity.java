@@ -6,9 +6,20 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.dk.view.folder.ResideMenu;
 import com.dk.view.folder.ResideMenuItem;
+import com.ok.item.FileListItem;
+import com.ok.rest.client.FieldListCallback;
+import com.ok.rest.client.IrrigationApi;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MenuActivity extends FragmentActivity implements View.OnClickListener {
@@ -20,6 +31,10 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
     private ResideMenuItem itemCalendar;
     private ResideMenuItem itemSettings;
 
+    private ListView listView;
+    private ArrayAdapter<String> arrayAdapter;
+    private Button restRequest;
+    private ArrayList<String> calendarList;
     /**
      * Called when the activity is first created.
      */
@@ -37,7 +52,58 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
                     .setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .commit();
     }
+    private void init(View v)
+    {
+        listView   = (ListView) v.findViewById(R.id.listView);
+        restRequest=(Button)v.findViewById(R.id.restRequest);
+        restRequest.setOnClickListener(this);
+    }
+    private void initView(){
+        calendarList = new ArrayList<String>();
+        arrayAdapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                calendarList);
+        listView.setAdapter(arrayAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(getApplicationContext(), "Clicked item!", Toast.LENGTH_LONG).show();
+            }
+        });
+        //get User Field List
+        recieveFieldListData();
 
+    }
+    private void recieveFieldListData()
+    {
+        IrrigationApi irrigationApi=IrrigationApi.create();
+        irrigationApi.getUserFieldList("okan", "1234", new FieldListCallback() {
+            @Override
+            public void onSuccess(List<FileListItem> result) {
+                updateList(result);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                showMessage(t.getMessage().toString());
+            }
+        });
+    }
+    private void updateList(List<FileListItem> items)
+    {
+        calendarList.clear();
+        for (FileListItem item: items) {
+            String s=" fieldName: " +item.getFieldName()+
+                    "\n fieldInfo : "+item.getFieldInfo();
+            calendarList.add(s);
+        }
+        arrayAdapter.notifyDataSetChanged();
+    }
+    private void showMessage(String message)
+    {
+        Toast.makeText(getApplicationContext(),"message : "+message,Toast.LENGTH_LONG).show();
+    }
     private void setUpMenu() {
 
         // attach to current activity;
@@ -52,7 +118,7 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
         // create menu items;
         itemHome = new ResideMenuItem(this, R.drawable.icon_home, "Home");
         itemProfile = new ResideMenuItem(this, R.drawable.icon_profile, "Gallery");
-        itemCalendar = new ResideMenuItem(this, R.drawable.icon_calendar, "Calendar");
+        itemCalendar = new ResideMenuItem(this, R.drawable.filed, "Field List");
         itemSettings = new ResideMenuItem(this, R.drawable.icon_settings, "Settings");
 
         itemHome.setOnClickListener(this);
@@ -98,8 +164,10 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
             changeFragment(new FieldListFragment());
         } else if (view == itemSettings) {
             changeFragment(new SettingsFragment());
+        } else if(view==restRequest)
+        {
+            recieveFieldListData();
         }
-
         resideMenu.closeMenu();
     }
 

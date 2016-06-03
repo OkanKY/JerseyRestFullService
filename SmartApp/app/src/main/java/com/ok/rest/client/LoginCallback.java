@@ -1,4 +1,4 @@
-package com.ok.rest.callback;
+package com.ok.rest.client;
 
 import com.ok.item.FileListItem;
 import com.ok.item.LoginItem;

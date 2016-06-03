@@ -7,7 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 
+import com.ok.item.BestPlantItem;
 import com.ok.item.FileListItem;
+import com.ok.rest.client.BestItemCallback;
 import com.ok.rest.client.IrrigationApi;
 import com.ok.rest.client.FieldListCallback;
 
@@ -48,6 +50,22 @@ public class FieldListFragment extends Fragment implements View.OnClickListener{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(getActivity(), "Clicked item!", Toast.LENGTH_LONG).show();
+                IrrigationApi irrigationApi=IrrigationApi.create();
+                irrigationApi.getBestPlant("okan",
+                        "1234", 1,
+                        1, 1,
+                        1, 1,
+                        1, new BestItemCallback() {
+                            @Override
+                            public void onSuccess(BestPlantItem result) {
+                            showMessage("Best Plant: "+result.getResult());
+                            }
+
+                            @Override
+                            public void onFailure(Throwable t) {
+                            showMessage(t.getMessage());
+                            }
+                        });
             }
         });
         //get User Field List
@@ -88,6 +106,6 @@ public class FieldListFragment extends Fragment implements View.OnClickListener{
     }
     private void showMessage(String message)
     {
-        Toast.makeText(getContext(),"message : "+message,Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(),""+message,Toast.LENGTH_LONG).show();
     }
 }

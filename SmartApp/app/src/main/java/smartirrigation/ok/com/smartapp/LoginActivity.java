@@ -53,7 +53,7 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
             public void onSuccess(LoginItem result) {
                 loginProgress.setVisibility(View.INVISIBLE);
                showMessage(""+result.getResult());
-               // startMainActivity();
+                startMainActivity();
             }
 
             @Override

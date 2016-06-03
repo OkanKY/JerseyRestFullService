@@ -24,31 +24,14 @@
                 android:layout_width="match_parent"
                 android:layout_marginBottom="10dp"
                 android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/txt_logo"
+                <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/app_name"
-                    android:textColor="@color/blue"
-                    android:textStyle="bold"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="45dp"
-                    android:clickable="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_height="200dp"
+                    android:id="@+id/imageView2"
+                    android:background="@drawable/smart_irrigation_logo2"
+                    android:layout_gravity="center_horizontal|top" />
 
-                <TextView
-                    android:id="@+id/txt_descricao"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/app_decription"
-                    android:textColor="@color/grey_600"
-                    android:layout_below="@+id/txt_logo"
-                    android:layout_alignRight="@+id/txt_logo"
-                    android:layout_alignEnd="@+id/txt_logo" />
+
             </RelativeLayout>
 
             <LinearLayout
@@ -63,7 +46,7 @@
                     android:id="@+id/txt_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/prompt_email"
+                    android:hint="e posta"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:padding="8dp"
@@ -76,7 +59,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:hint="@string/prompt_password"
+                    android:hint="Şifre"
                     android:imeActionId="@+id/login"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
@@ -101,10 +84,34 @@
                     android:textColor="@color/grey_0"
                     android:layout_marginTop="2dp"
                     android:background="@drawable/login_btn"
-                    android:text="@string/action_sign_in" />
+                    android:text="Giriş" />
+                <Button
+                    android:id="@+id/register_button"
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey_0"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/login_btn"
+                    android:text="Kayıt Ol" />
 
             </LinearLayout>
         </LinearLayout>
 
     </ScrollView>
+
+    <TextView
+        android:id="@+id/txt_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:text="@string/app_name"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="45dp"
+        android:clickable="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
 </FrameLayout>

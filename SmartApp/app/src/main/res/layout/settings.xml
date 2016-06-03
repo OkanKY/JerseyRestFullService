@@ -5,12 +5,20 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GetBestPlant"
+        android:id="@+id/best_plant_button"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="80dp"/>
+
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Settings"
-            style="@style/fragment_text"
-            android:layout_gravity="center"
-            android:id="@+id/textView"/>
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=""
+        android:id="@+id/best_plant_text"
+        android:layout_gravity="center" />
 
 </FrameLayout>
