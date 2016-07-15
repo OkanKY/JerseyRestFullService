@@ -10,7 +10,7 @@ creating artificial greenhouse will allow the facilitation of landless agricultu
 
 
 
-                    Used Technologies 
+              Used Technologies 
               -Big Data
               -IOT
               -Android
