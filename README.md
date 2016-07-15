@@ -7,6 +7,9 @@ The location of the user of the product, geographical information such as examin
 The project will recalculate future weather web service with the help of pulling irrigation amounts and times.
 Moreover, In today's our project areas declining agricultural areas, houses in an unused portion(roof, balcony) 
 creating artificial greenhouse will allow the facilitation of landless agricultural practices.
+
+
+
                     Used Technologies 
               -Big Data
               -IOT
